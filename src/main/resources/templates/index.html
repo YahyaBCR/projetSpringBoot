@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xml:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1"
+>
+<head>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="/webjars/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.10.3/font/bootstrap-icons.css">
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+
+<div layout:fragment="content1">
+    <!-- Background image -->
+    <div class="bg-image"
+         style="background-image: url('https://img.freepik.com/vecteurs-libre/joueur-football-football-coups-pied_23-2147494006.jpg?w=740&t=st=1715865845~exp=1715866445~hmac=14a973da1f09dcac2d67919b5db0c7d9e26bbe7f8167507eb74ff6415ae2c0c5');
+        height: 50vh;
+        background-position: center;
+        background-size: cover;">
+    </div>
+
+    <div class="container my-3 mb-5">
+        <h3 class="text-center">Liste des Services</h3>
+        <div class="row">
+            <div th:if="${#authorization.expression('hasRole(''ADMIN'')')}" class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Ajouter un nouveau Joueur</h5>
+                        <p class="card-text">Accedez au formulaire pour ajouter un joueur ...</p>
+                        <a th:href="@{FormJoueurs}" class="btn btn-success">AJOUTER JOUEUR </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Gestion des joueurs</h5>
+                        <p class="card-text">Accedez à la page gestion des joueurs pour modifier supprimer et visualiser les joueurs ...</p>
+                        <a th:href="@{/login}" class="btn btn-primary">GESTION JOUEUR </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
